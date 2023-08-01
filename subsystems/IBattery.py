@@ -15,8 +15,8 @@ class IBattery:
     def connectPowerSink(self, sink):
         self.sinks.append(sink)
     
-    def getCurrentStoredWattHours(self):
+    def getCurrentStoredWattHours(self) -> float:
         raise NotImplementedError("Interface function")
 
-    def getMaximumStoredWattHours(self):
+    def getMaximumStoredWattHours(self) -> float:
         raise NotImplementedError("Interface function")
