@@ -1,10 +1,7 @@
+from .IBattery import IBattery
 
 
-
-class BatteryBank:
-
-    sources = []
-    sinks = []
+class BatteryBank(IBattery):
 
     # TODO: update the following battery characteristics to match a little more closely with potential options
 
@@ -27,3 +24,9 @@ class BatteryBank:
         maxInputWatts = totalInputWattHours * self.chargingEfficiency
 
         self.currentStoredWattHours = min(self.currentStoredWattHours + maxInputWatts, self.maxStoredWattHours)
+    
+    def getCurrentStoredWattHours(self):
+        return self.currentStoredWattHours
+    
+    def getMaximumStoredWattHours(self):
+        return self.maxStoredWattHours
