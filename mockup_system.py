@@ -19,4 +19,14 @@ class MockupSystem:
 
     def update(self, deltaTimeSeconds: float = 1.0):
         for subsystem in self.subsystems.keys():
-            subsystem.update(deltaTimeSeconds)
+            self.subsystems[subsystem].update(deltaTimeSeconds)
+
+
+if __name__ == "__main__":
+    system = MockupSystem()
+    for i in range(100):
+        for j in range(3600):
+            system.update() # 1s update interval
+        print("Current battery level: ", end="")
+        print(system.subsystems["batterybank"].currentStoredWattHours, end="")
+        print(" watt hours.")
