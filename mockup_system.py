@@ -1,4 +1,5 @@
 
+from subsystems.solarpanels import SolarPanels
 
 
 class MockupSystem:
@@ -12,6 +13,7 @@ class MockupSystem:
     subsystems = {}
 
     def __init__(self):
+        self.subsystems["solarpanels"] = SolarPanels()
         pass
 
     def update(self, deltaTimeSeconds: float = 1.0):
