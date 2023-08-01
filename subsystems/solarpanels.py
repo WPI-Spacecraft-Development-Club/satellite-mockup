@@ -4,8 +4,8 @@
 class SolarPanels:
     """
     Solar panels are a subsystem of the satellite. They generate electricity primarily for the purpose of charging batteries.
-    The amount of power they generate, in terms of voltage, is defined by their angle of incidence with light from the sun, as
-    well as any obstacles in the way of that light: whether that's the satellite itself, the Earth, or some other body.
+    The amount of power they generate, in terms of voltage, is defined by their angle of incidence with light from the sun as well as any obstacles in the way of that light.
+    That might be the satellite itself, the Earth, or some other body.
     """
 
     efficiency = 0.17 # TODO: find the real number for our solar panels
@@ -22,7 +22,7 @@ class SolarPanels:
     def __init__(self):
         pass
 
-    def update(self, delatTimeSeconds: float = 1.0):
+    def update(self, deltaTimeSeconds: float = 1.0):
         pass
 
     def getCurrentPowerGenerationWatts(self):
