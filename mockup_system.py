@@ -11,6 +11,7 @@ class MockupSystem:
     """
 
     subsystems = {}
+    uptimeSeconds = 0
 
     def __init__(self):
         self.subsystems["solarpanels"] = SolarPanels()
@@ -20,6 +21,7 @@ class MockupSystem:
     def update(self, deltaTimeSeconds: float = 1.0):
         for subsystem in self.subsystems.keys():
             self.subsystems[subsystem].update(deltaTimeSeconds)
+        self.uptimeSeconds += deltaTimeSeconds
 
 
 if __name__ == "__main__":
@@ -30,3 +32,5 @@ if __name__ == "__main__":
         print("Current battery level: ", end="")
         print(system.subsystems["batterybank"].currentStoredWattHours, end="")
         print(" watt hours.")
+        print("Uptime: " + str(system.uptimeSeconds) + " seconds.")
+        print()
