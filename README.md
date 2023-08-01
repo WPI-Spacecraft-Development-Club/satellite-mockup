@@ -10,3 +10,7 @@ A simulation is an imperfect tool for this job, but it should help us make some 
 ## Sharepoint Documents
 
 All documentation surrounding the software systems for THERMO-1, the satellite this repo is designed to emulate, can be found [here](https://wpi0.sharepoint.com/sites/gr-spacecraftdevelopment/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fgr%2Dspacecraftdevelopment%2FShared%20Documents%2FSupport%20Systems%20Subteam%2FTHERMO%2D1%2FSoftware&viewid=b8c5120d%2D594d%2D4af6%2D974c%2D456048c71fd5).
+
+## Tasking
+
+SDC Software tasking is currently done with Trello. If you don't have access, please ask for it!
