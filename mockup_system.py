@@ -1,6 +1,6 @@
 
 from subsystems.solarpanels import SolarPanels
-
+from subsystems.battery import BatteryBank
 
 class MockupSystem:
     """
@@ -14,9 +14,9 @@ class MockupSystem:
 
     def __init__(self):
         self.subsystems["solarpanels"] = SolarPanels()
-        pass
+        self.subsystems["batterybank"] = BatteryBank()
+        self.subsystems["batterybank"].sources.append(self.subsystems["solarpanels"])
 
     def update(self, deltaTimeSeconds: float = 1.0):
         for subsystem in self.subsystems.keys():
             subsystem.update(deltaTimeSeconds)
-
