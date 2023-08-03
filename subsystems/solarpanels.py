@@ -1,7 +1,7 @@
 
+from .IPowerSource import IPowerSource
 
-
-class SolarPanels:
+class SolarPanels(IPowerSource):
     """
     Solar panels are a subsystem of the satellite. They generate electricity primarily for the purpose of charging batteries.
     The amount of power they generate, in terms of voltage, is defined by their angle of incidence with light from the sun as well as any obstacles in the way of that light.
@@ -19,13 +19,17 @@ class SolarPanels:
     panelArea = 0.02 # TODO: find the real number for our solar panels.
     # This value is 20cm square by 10cm square, expressed in square meters.
 
+    currentWattHours = 0.0
+    totalGeneratedWattHours = 0.0
+
     def __init__(self):
         pass
 
     def update(self, deltaTimeSeconds: float = 1.0):
-        pass
+        self.currentWattHours = self.getCurrentGeneratedWatts() * (deltaTimeSeconds / 3600.0) # convert seconds to hours, multiply by watts generated
+        self.totalGeneratedWattHours += self.currentWattHours
 
-    def getCurrentPowerGenerationWatts(self):
+    def getCurrentGeneratedWatts(self) -> float:
         # amount of power hitting the solar panels assuming they're perpendicular to the light:
         # incidentPower = intensity * area
 
@@ -34,3 +38,11 @@ class SolarPanels:
 
         # generatedPower = intensity * area * efficiency
         return self.sunIntensity * self.panelArea * self.efficiency
+    
+    def popGeneratedWattHours(self) -> float:
+        output = self.currentWattHours
+        self.currentWattHours = 0
+        return output
+    
+    def getTotalGeneratedWattHours(self) -> float:
+        return self.totalGeneratedWattHours
